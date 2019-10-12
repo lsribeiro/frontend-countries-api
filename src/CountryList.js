@@ -2,6 +2,8 @@ import React from 'react';
 
 import CountryPreview from './CountryPreview';
 
+import './CountryList.scss';
+
 class CountryList extends React.Component {
 	constructor(props) {
 		super(props);
@@ -31,8 +33,7 @@ class CountryList extends React.Component {
 		});
 
 		return(
-			<div>
-				<h1>Countries List</h1>
+			<div className="country-list">
 				{ countryList }
 			</div>
 		);

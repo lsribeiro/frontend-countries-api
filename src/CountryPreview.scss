@@ -1,0 +1,35 @@
+.country-card-preview {
+	display: inline-block;
+
+	width: 250px;
+	height: 325px;
+
+	.flag-container {
+		height: 150px;
+		background: {
+			position: center;
+			repeat: no-repeat;
+			size: cover;
+		}
+	}
+
+	border: {
+		width: 1px;
+		style: solid;
+		color: #000;
+	}
+
+	text: {
+		align: left;
+	}
+
+	h4 {
+		margin: 0;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+}
