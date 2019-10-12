@@ -10,21 +10,27 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			region: 'All'
+			region: 'All',
+			search: ''
 		};
 
 		this.onChangeRegion = this.onChangeRegion.bind(this);
+		this.onChangeSearch = this.onChangeSearch.bind(this);
 	}
 
 	onChangeRegion(region) {
 		this.setState({ region });
 	}
+
+	onChangeSearch(search) {
+		this.setState({ search });
+	}
 	render() {
   		return (
   	  		<div>
   	  	  		<Header />
-  	  	  		<Toolbar onChangeRegion={ this.onChangeRegion }/>
-  	  	  		<CountryList region={ this.state.region }/>
+  	  	  		<Toolbar onChangeRegion={ this.onChangeRegion } onChangeSearch={ this.onChangeSearch }/>
+  	  	  		<CountryList region={ this.state.region } search={ this.state.search }/>
   	  		</div>
   		);
   	}

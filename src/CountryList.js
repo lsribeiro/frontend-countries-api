@@ -12,6 +12,7 @@ class CountryList extends React.Component {
 		};
 
 		this.filterByRegion = this.filterByRegion.bind(this);
+		this.searchByName = this.searchByName.bind(this);
 	}
 
 	async getCountries() {
@@ -27,6 +28,13 @@ class CountryList extends React.Component {
 		return country.region === this.props.region;
 	}
 
+	searchByName(country) {
+		let name = country.name.toLowerCase();
+		let search = this.props.search.toLowerCase();
+
+		return name.startsWith(search);
+	}
+
 	componentDidMount() {
 		this.getCountries().then(countries => {
 			this.setState({
@@ -36,7 +44,7 @@ class CountryList extends React.Component {
 	}
 
 	render() {
-		const countryList = this.state.countries.filter(this.filterByRegion).map((country, index) => {
+		const countryList = this.state.countries.filter(this.filterByRegion).filter(this.searchByName).map((country, index) => {
 			return <CountryPreview country={country} key={country.name}/>
 		});
 

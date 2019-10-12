@@ -6,17 +6,23 @@ class Toolbar extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.onChange = this.onChange.bind(this);
+		this.onSelect = this.onSelect.bind(this);
+		this.onSearch = this.onSearch.bind(this);
 	}
 
-	onChange(e) {
+	onSelect(e) {
 		this.props.onChangeRegion(e.target.value);
 	}
+
+	onSearch(e) {
+		this.props.onChangeSearch(e.target.value);
+	}
+
 	render() {
 		return(
 			<div className="toolbar-container">
-				<input type="text" name="" id="" placeholder="Search" />
-				<select defaultValue="filter" onChange={ this.onChange }>
+				<input type="text" name="" id="" placeholder="Search" onChange={ this.onSearch } />
+				<select defaultValue="filter" onChange={ this.onSelect }>
 					<option hidden disabled value="filter" >Filter by Region</option>
 					<option value="All">All</option>
 					<option value="Africa">Africa</option>
