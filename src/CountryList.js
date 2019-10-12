@@ -10,6 +10,8 @@ class CountryList extends React.Component {
 		this.state = {
 			countries: []
 		};
+
+		this.filterByRegion = this.filterByRegion.bind(this);
 	}
 
 	async getCountries() {
@@ -17,6 +19,12 @@ class CountryList extends React.Component {
 		let countries = await data.json();
 
 		return countries;
+	}
+
+	filterByRegion(country) {
+		if (this.props.region === 'All') return true;
+
+		return country.region === this.props.region;
 	}
 
 	componentDidMount() {
@@ -28,9 +36,10 @@ class CountryList extends React.Component {
 	}
 
 	render() {
-		const countryList = this.state.countries.map((country, index) => {
+		const countryList = this.state.countries.filter(this.filterByRegion).map((country, index) => {
 			return <CountryPreview country={country} key={country.name}/>
 		});
+
 
 		return(
 			<div className="country-list">
