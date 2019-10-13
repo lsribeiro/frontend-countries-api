@@ -27,11 +27,14 @@ class App extends React.Component {
 	}
 	render() {
   		return (
-  	  		<div>
+  	  		<div className="app">
   	  	  		<Header />
-  	  	  		<Toolbar onChangeRegion={ this.onChangeRegion } onChangeSearch={ this.onChangeSearch }/>
-  	  	  		<CountryList region={ this.state.region } search={ this.state.search }/>
-  	  		</div>
+
+  	  	  		<div className="container">
+  	  	  			<Toolbar onChangeRegion={ this.onChangeRegion } onChangeSearch={ this.onChangeSearch }/>
+  	  	  			<CountryList region={ this.state.region } search={ this.state.search }/>
+				</div>
+			</div>
   		);
   	}
 }

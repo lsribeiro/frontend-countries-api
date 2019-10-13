@@ -21,7 +21,7 @@ class Toolbar extends React.Component {
 	render() {
 		return(
 			<div className="toolbar-container">
-				<input type="text" name="" id="" placeholder="Search" onChange={ this.onSearch } />
+				<input type="text" name="" id="" placeholder="&#xF002; Search for a country..." onChange={ this.onSearch } />
 				<select defaultValue="filter" onChange={ this.onSelect }>
 					<option hidden disabled value="filter" >Filter by Region</option>
 					<option value="All">All</option>

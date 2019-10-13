@@ -13,13 +13,15 @@ function CountryPreview({ country }) {
 				backgroundImage: 'url(' + country.flag + ')'
 			}}>
 			</div>
-			<h4>{country.name}</h4>
+			<div className="country-preview-info">
+				<h3>{country.name}</h3>
 
-			<ul>
-				<li><strong>Population:</strong> {country.population}</li>
-				<li><strong>Region:</strong> {country.region}</li>
-				<li><strong>Capital:</strong> {country.capital}</li>
-			</ul>	
+				<ul>
+					<li><strong>Population:</strong> {country.population}</li>
+					<li><strong>Region:</strong> {country.region}</li>
+					<li><strong>Capital:</strong> {country.capital}</li>
+				</ul>	
+			</div>
 		</div>
 	);
 }

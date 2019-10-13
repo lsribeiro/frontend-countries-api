@@ -4,9 +4,9 @@ import './Header.scss';
 
 function Header() {
 	return(
-		<div>
+		<div className="header">
 			<h1>Where in the world?</h1>
-			<button type="">Dark Mode</button>
+			<button className="theme-btn" type=""><i className="fa fa-moon-o"></i>Dark Mode</button>
 		</div>
 	);
 }
