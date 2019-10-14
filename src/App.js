@@ -1,9 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import './App.scss';
 
 import Header from './Header';
 import Toolbar from './Toolbar';
 import CountryList from './CountryList';
+import CountryView from './CountryView';
 
 class App extends React.Component {
 	constructor(props) {
@@ -27,14 +30,22 @@ class App extends React.Component {
 	}
 	render() {
   		return (
-  	  		<div className="app">
-  	  	  		<Header />
+  			<Router>
+  	  			<div className="app">
+  	  	  			<Header />
 
-  	  	  		<div className="container">
-  	  	  			<Toolbar onChangeRegion={ this.onChangeRegion } onChangeSearch={ this.onChangeSearch }/>
-  	  	  			<CountryList region={ this.state.region } search={ this.state.search }/>
+  	  	  			<div className="container">
+  	  	  				<Switch>
+  	  	  					<Route exact path='/'>
+  	  	  						<Toolbar onChangeRegion={ this.onChangeRegion } onChangeSearch={ this.onChangeSearch }/>
+  	  	  						<CountryList region={ this.state.region } search={ this.state.search }/>
+  	  	  					</Route>
+  	  	  					<Route exact path='/:country' component={ CountryView }>
+  	  	  					</Route>
+  	  	  				</Switch>
+					</div>
 				</div>
-			</div>
+			</Router>
   		);
   	}
 }
