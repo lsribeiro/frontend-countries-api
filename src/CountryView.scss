@@ -1,3 +1,70 @@
-img {
-	max-width: 200px;
+.country-preview-container {
+	font-family: 'Nunito Sans', sans-serif;
+
+	width: 100%;
+	margin: auto;
+
+	.back-btn-container {
+		margin-top: 50px;
+		padding: 10px;
+
+		button {
+			border: none;
+			border-radius: 5px;
+			box-shadow: 2px 2px 10px hsl(0%, 0%, 80%);
+
+			width: 100px;
+
+			padding: 10px;
+
+			background-color: #FFF;
+
+			i {
+				margin-right: 10px;
+			}
+		}
+	}
+
+	.country-container {
+		display: flex;
+		align-items: center;
+
+		margin: 30px 0;
+
+		.country-image-container {
+			width: 30%;
+			margin: 25px;
+			img {
+				width: 100%;
+			}
+		}
+
+		.country-info-container {
+			margin-left: auto;
+
+			display: flex;
+			flex-direction: column;
+
+			width: 50%;
+			height: 100%;
+
+
+			.country-details {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+			}
+
+			ul {
+				display: flex;
+				flex-flow: wrap column;
+				height: 150px;
+
+				list-style-type: none;
+
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
 }

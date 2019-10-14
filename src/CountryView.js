@@ -30,19 +30,49 @@ class CountryView extends React.Component {
 
 		return(
 			<div className="country-preview-container">
-				<Link to='/'>
-					<button type="submit">Back</button>
-				</Link>
-				<img src={country.flag} alt="Flag" />
-				<h1>{country.name}</h1>
-				<p>Native Name: {country.nativeName}</p>
-				<p>Population: {country.population}</p>
-				<p>Region: {country.region}</p>
-				<p>Sub Region: {country.subregion}</p>
-				<p>Capital: {country.capital}</p>
-				<p>Top Level Domain: {country.topLevelDomain}</p>
-				<p>Currencies: {country.currencies ? country.currencies.map(currency => currency.name): ''}</p>
-				<p>Languages: {country.languages ? country.languages.map(language => language.name): ''}</p>
+				<div className="back-btn-container">
+					<Link to='/'>
+						<button type="submit">
+							<i className="fa fa-long-arrow-left" aria-hidden="true"></i>
+							Back
+						</button>
+					</Link>
+				</div>
+				<div className="country-container">
+					<div className="country-image-container">
+						<img src={country.flag} alt="Flag" />
+					</div>
+					<div className="country-info-container">
+						<div className="country-name">
+							<h1>{country.name}</h1>
+						</div>
+						<div className="country-details">
+							<ul>
+								<li><strong>Native Name:</strong> {country.nativeName}</li>
+								<li><strong>Population:</strong> {country.population}</li>
+								<li><strong>Region:</strong> {country.region}</li>
+								<li><strong>Sub Region:</strong> {country.subregion}</li>
+								<li><strong>Capital:</strong> {country.capital}</li>
+								<li><strong>Top Level Domain:</strong> {country.topLevelDomain}</li>
+								<li><strong>Currencies:</strong> {country.currencies ? country.currencies.map(currency => currency.name): ''}</li>
+								<li><strong>Languages:</strong> {country.languages ? country.languages.map(language => language.name): ''}</li>
+							</ul>
+						</div>
+						<div className="country-border">
+							<p><strong>Border Countries:</strong>{
+								country.borders ? country.borders.map(border => {
+									return(
+										<Link to={{
+											pathname: `/${border}`
+										}}>
+											{ border }
+										</Link>
+									);
+								}) : ''
+							} </p>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
